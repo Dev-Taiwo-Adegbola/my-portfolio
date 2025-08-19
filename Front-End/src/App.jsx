@@ -1,0 +1,25 @@
+import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router'
+import './App.css'
+import Profile from './pages/profile'
+import SearchPage from './pages/search'
+import Portfolio from './pages/portfolio'
+
+
+function App() {
+
+  return (
+    <>
+    <Router>
+    
+      <Routes>
+        <Route path='/' element={<Portfolio />}/>
+        <Route path='/profile' element={<Profile />}/>
+        <Route path='/search' element={<SearchPage />}/>
+      </Routes>
+    </Router>
+     </>
+  )
+}
+
+export default App

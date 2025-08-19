@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+body {
+    @apply bg-[#000] text-[#fff]
+}
+small{
+    @apply text-white/50
+}
+
+button{
+    @apply cursor-pointer
+}
+
+@layer utilities {
+    .no-scrollbar::-webkit-scrollbar{
+        display: none;
+    }
+
+    .no-scrollbar{
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
+
+@theme {
+    --breakpoint-xs:32rem;
+    --breakpoint-sm:48rem;
+    --breakpoint-md:55rem;
+    --breakpoint-lg:65rem;
+
+    --animate-color: color 3s infinite alternate;
+    --animate-bgcolor: bgcolor 3s infinite alternate;
+
+    
+}
+@keyframes color {
+    0%{
+        fill:#008000;
+        
+    }
+
+    50%{
+        fill:red;
+    }
+
+    100%{
+        fill:blue;
+    }
+}
+
+@keyframes bgcolor {
+    0%{
+        
+        background-color: oklch(82.8% 0.189 84.429);
+    }
+
+    50%{
+        background-color:red;
+    }
+
+    100%{
+        background-color:blue;
+    }
+}
+
+.engageicon {
+    @apply    mx-auto
+}
+
+.engageBtn {
+    @apply  size-[30px]  rounded-full transition-all
+}
+
+.animation  {
+    @apply  animate-color transition-all
+}
+
+.animation-bg  {
+    @apply  animate-bgcolor transition-all
+}
