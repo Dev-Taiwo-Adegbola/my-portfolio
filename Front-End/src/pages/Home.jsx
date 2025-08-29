@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {HomeTabs, MobileBottomNavigations, MobileSideNavigations, MobileTopNavigations} from '../components/navigations/MobileNavigations'
 import SideNavigations from '../components/navigations/SideNavigations'
-import { Post } from '../components/posts/post'
+import { ImageModal, Post } from '../components/posts/post'
 import {SkillContent} from '../Data_Contents'
 import {work_experience} from '../Data_Contents'
 import me from '../assets/img/hero.webp'
@@ -16,6 +16,11 @@ import { NodeJSicon, PythonIcon, ReactIcon, TailwindCSS } from '../components/Ic
 import { Link } from 'react-router'
 
 
+const projectLinks ={
+  plotera:'https://plotera.vercel.app/',
+  cc:'https://career-craft-phi.vercel.app/',
+
+}
 
 export const SkillPost = () => {
   return (
@@ -70,10 +75,10 @@ export const AboutMe = () => {
 export const WorkPost = () => {
   return (
     <p className="">
-      <h2 className='underline mt-4 text-md font-bold text-blue-500'>Plotera - Real Estate solution (Launching Soon)</h2>
+      <h2 className='underline mt-4 text-md font-bold text-blue-500' contentEditable='true'>Plotera - Real Estate solution (Launching Soon)</h2>
       Started a role as a Developer at <a href='#' className='text-blue-500'>Plotera</a> leading the team in build the next big real estate solution. <a href='#' className='text-blue-500'>Plotera</a> is a Proptech startup   tackling real estate challenges in Africa by making property access safer, more transparent, 
       and affordable - starting with rent saving and verified listing.<br />
-      <Link to='' className='mt-2  inline-block px-4 py-2 rounded bg-amber-500'>Vist site</Link>
+      <Link to={projectLinks.plotera} className='mt-2  inline-block px-4 py-2 rounded bg-amber-500'>Vist site</Link>
     </p>
   )
 }
@@ -102,6 +107,10 @@ const Home = ({menuToggle, onSetMenuToggle, buttomMenuToggle}) => {
 
 
   const [homeTab, setHomeTab] = useState('for-you')
+   const [imgOpened, setImgOpened] =useState(false)
+   const [postImg, setPostImg ] = useState(null)
+
+ 
 
   return (
     <>
@@ -113,7 +122,7 @@ const Home = ({menuToggle, onSetMenuToggle, buttomMenuToggle}) => {
               homeTab === 'for-you' 
               &&
               <>
-              <Post text={<AboutMe />} img={me} />
+              <Post text={<AboutMe />} img={me} imgOpened={imgOpened} setImgOpened={setImgOpened} setPostImg={setPostImg} />
               <Post text={<SkillPost />} />
               </>
             }
@@ -124,10 +133,10 @@ const Home = ({menuToggle, onSetMenuToggle, buttomMenuToggle}) => {
               &&
               <>
               
-              <Post text={<ProjectsPost description={work_experience.plotera} project='Plotera' link='' />} img={plotera0}/>
-              <Post text={<ProjectsPost description={work_experience.careerCraft} project='Career Craft.AI' link='' />} img={careerCraft}/>
-              <Post text={<ProjectsPost description={work_experience.ido} project='iDO' link='' />} img={ido}/>
-              <Post text={<ProjectsPost description={work_experience.movie} project='Tae MovieApp' link='' />} img={movieApp}/>
+              <Post text={<ProjectsPost description={work_experience.plotera} project='Plotera' link={projectLinks.plotera} />} img={plotera0} imgOpened={imgOpened} setImgOpened={setImgOpened} setPostImg={setPostImg}/>
+              <Post text={<ProjectsPost description={work_experience.careerCraft} project='Career Craft.AI' link={projectLinks.cc} />} img={careerCraft} imgOpened={imgOpened} setImgOpened={setImgOpened} setPostImg={setPostImg}/>
+              <Post text={<ProjectsPost description={work_experience.ido} project='iDO' link='' />} img={ido} imgOpened={imgOpened} setImgOpened={setImgOpened} setPostImg={setPostImg}/>
+              <Post text={<ProjectsPost description={work_experience.movie} project='Tae MovieApp' link='' />} img={movieApp} imgOpened={imgOpened} setImgOpened={setImgOpened} setPostImg={setPostImg}/>
               </>
             }
 
@@ -138,8 +147,8 @@ const Home = ({menuToggle, onSetMenuToggle, buttomMenuToggle}) => {
               <>
               <Post 
               text={<WorkPost />} 
-              img={plotera} />
-              <Post text={work_experience.ntech} img={ntech}/>
+              img={plotera}  imgOpened={imgOpened} setImgOpened={setImgOpened} setPostImg={setPostImg}/>
+              <Post text={work_experience.ntech} img={ntech} imgOpened={imgOpened} setImgOpened={setImgOpened} setPostImg={setPostImg}/>
               </>
             }
 
@@ -147,7 +156,7 @@ const Home = ({menuToggle, onSetMenuToggle, buttomMenuToggle}) => {
               homeTab === 'view-resume' 
               &&
               <>
-              <Post text={SkillContent.about_me} img={cv} />
+              <Post text={SkillContent.about_me} img={cv} imgOpened={imgOpened} setImgOpened={setImgOpened} setPostImg={setPostImg}/>
               <Post text={<CV />} img={''} />
               </>
             }
@@ -156,7 +165,7 @@ const Home = ({menuToggle, onSetMenuToggle, buttomMenuToggle}) => {
 
 
             <MobileSideNavigations menuToggle={menuToggle} onSetMenuToggle={onSetMenuToggle}/>
-
+{imgOpened && <ImageModal img={postImg} onSetImgOpened={setImgOpened} />}
     </>
   )
 }

@@ -18,7 +18,7 @@ const SideNavigations = () => {
         <div className=" ">
             <ul className="flex flex-col items-center lg:items-start gap-5.5 text-md font-semibold">
             {/* <Xicon className='fill-white size-[30px]'/> */}
-            <NavLink to='/' icon={<ProfileIcon className='fill-white size-[30px]'/>} text='Profile'/>
+            <NavLink to='/profile' icon={<ProfileIcon className='fill-white size-[30px]'/>} text='Profile'/>
             <NavLink to='/' icon={<ListIcon className='fill-white size-[30px]'/>} text='Blog' />
             <NavLink to='/' icon={<SpaceIcon className='fill-white size-[30px]'/>} text='Insights' />
             <NavLink to='/' icon={<JobsIcon className='fill-white size-[30px]'/>} text='My Journey' />
@@ -29,7 +29,7 @@ const SideNavigations = () => {
             <NavLink to='/' icon={<VerifiedORGIcon className='fill-white size-[25px]'/>} text='Verified Orgs' />
             <NavLink to='/' icon={<ProfileIcon className='fill-white size-[25px]'/>} text='Profile' />
             */}
-            <button className='flex gap-2 items-center justify-center size-[50px] p-3.5 lg:w-[80%] bg-white lg:p-2.5  rounded-full lg:rounded-4xl text-black'><NewPostIcon className='lg:hidden fill-black size-[30px]'/> <span className='max-lg:hidden '>post</span> </button>
+            <button className='flex gap-2 items-center justify-center size-[50px] p-3.5 lg:w-[80%] bg-white lg:p-2.5  rounded-full lg:rounded-4xl text-black'><NewPostIcon className='lg:hidden fill-black size-[30px]'/> <span className='max-lg:hidden '>Hire me</span> </button>
             </ul>
         </div>
         

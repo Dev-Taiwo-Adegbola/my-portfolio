@@ -18,12 +18,12 @@ export const MobileSideNavigations = ({menuToggle, onSetMenuToggle}) => {
     <div on className={`${menuToggle ?'-translate-x-0' :'-translate-x-[120vw]'} fixed  top-0 bg-black transition-all flex flex-col   h-[100vh] px-5 pr-10 py-3.5  w-[80%] `}>
         <div className="flex justify-between items-start border-b border-white/10 pb-5 min-w-fit">
             <div className="flex flex-col gap-y-3 items-start">
-                <img src={me} alt="" className='size-[40px] rounded-full' />
+                <img src={me} alt="" className='size-[80px] rounded-full' />
                 <div className='leading-4'>
                     <p>Adegbola Taiwo</p>
                     <small>@Dev_Taiwo_Ade</small>
                 </div>
-                <p className="text-[14px]">29<small> Following</small>  11 <small>Followers</small></p>
+                
             </div>
             
         </div>
@@ -76,7 +76,7 @@ export const MobileBottomNavigations = ({onSetButtomMenuToggle, buttomMenuToggle
                <button onClick={()=>onSetButtomMenuToggle('search')} className=''><SearchIcon className={` ${buttomMenuToggle === 'search' &&"stroke-1.5 stroke-white"} fill-white size-[28px]`}/></button>
                
                <button onClick={()=>onSetButtomMenuToggle('message')} className=''>{buttomMenuToggle === 'message' ? <ActiveMessageIcon className='fill-white size-[28px]' /> : <MessageIcon className='fill-white size-[28px]'/>}</button>
-            <button className=' bg-amber-400 py-2 animation-bg rounded px-6 flex flex-col items-center  text-[8px] font-bold'><NavLink to='/' icon={'Hire me'} text='' /></button>
+            <button className=' bg-amber-400 py-2 animation-bg rounded px-6 flex flex-col items-center  text-[13px] font-bold'>Hire me</button>
                
         </ul>
     </div>
@@ -85,7 +85,7 @@ export const MobileBottomNavigations = ({onSetButtomMenuToggle, buttomMenuToggle
 
 export const MobileTopNavigations = ({onSetMenuToggle, menuToggle, midElement}) => {
     return (
-      <div className='sticky md:hidden bg-black inset-x-0 top-0 h-[70px] flex  items-center px-2  '>
+      <div className='sticky  md:hidden bg-black inset-x-0 top-0 h-[70px] flex  items-center px-2  '>
           <ul className="flex justify-between items-center w-full px-3">
             <button onClick={()=>onSetMenuToggle(!menuToggle)} className=' flex items-center w-fit'>
               <img src={me} alt="me" className='border-2 border-black size-[35px] rounded-full' />

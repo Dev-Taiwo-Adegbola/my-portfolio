@@ -3,10 +3,11 @@ import { DjangoIcon, Htmlicon, JSIcon, NextJSicon, NodeJSicon, PythonIcon, React
 import { Github, InstagramIcon, Linkedin, LucideFacebook } from 'lucide-react'
 import { Link } from 'react-router'
 
-const links = {
+export const links = {
   fb:'https://www.facebook.com/dev.taiwoadegbola',
   x:'https://x.com/Dev_Taiwo_Ade',
-  gh:'https://github.com/Dev-Taiwo-Adegbola'
+  gh:'https://github.com/Dev-Taiwo-Adegbola',
+  insta:'https://www.instagram.com/dev_taiwo_ae/'
 }
 const SocialHandles = () => {
   return (
@@ -18,7 +19,7 @@ const SocialHandles = () => {
           <Link to={links.x} className="flex flex-col gap-3 items-center text-blue-600 animate-pulse"><Xicon className='fill-blue-600 size-[20px]' />TW</Link>
           </li>
           <li className="">
-          <Link to='/' className="flex flex-col gap-2 items-center text-red-500 animate-pulse"><InstagramIcon />IN</Link>
+          <Link to={links.insta} className="flex flex-col gap-2 items-center text-red-500 animate-pulse"><InstagramIcon />IN</Link>
           </li>
           <li className="">
           <Link to='/' className="flex flex-col gap-2 items-center text-green-500 animate-pulse"><Linkedin />LD</Link>

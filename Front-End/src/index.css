@@ -8,7 +8,7 @@ small{
 }
 
 button{
-    @apply cursor-pointer
+    @apply cursor-pointer outline-0
 }
 
 @layer utilities {

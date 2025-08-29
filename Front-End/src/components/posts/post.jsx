@@ -1,14 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import me from '../../assets/img/hero.webp'
 import { PostHeader } from './postHeaders'
 import { CommentIcon, EngagementIcon, LikeIcon, RetweetIcon } from '../Icons'
+import { ArrowLeft } from 'lucide-react'
 
 
-export const PostContent = ({content, img}) => {
+export const ImageModal = ({img, onSetImgOpened}) => {
+  
+  return (
+    <div className="fixed inset-0 md:left-[15%] lg:left-[25%] lg:w-[50%] md:w-[55%]  backdrop-blur-2xl grid place-items-center">
+      <button onClick={()=>onSetImgOpened(false)} className="flex items-center py-2 px-4 absolute top-5 text-[#f7df1e] hover:bg-white/20 max-sm:bg-white/20 rounded-full transition-all"> <ArrowLeft size={30} /><span className="">go back</span></button>
+      <img src={img} className=" w-[90%] md:mt-4 h-auto rounded-2xl" />
+    </div>
+  )}
+
+export const PostContent = ({content, img, onSetImgOpened, onSetPostImg}) => {
+  
     return (
       <div className="mt-0.5">
          <p className='text-[15px]'> {content}</p>
-         <img src={img} alt="" className='w-[270px] h-auto mt-4 rounded-xl' />
+         <img onClick={()=>{onSetImgOpened(true); onSetPostImg(img)}} src={img} alt="" className='w-[270px] h-auto mt-4 rounded-xl' />
       </div>
     )
   }
@@ -24,15 +35,20 @@ export const PostContent = ({content, img}) => {
     )
   }
 
-export const Post = ({text, img}) => {
+export const Post = ({text, img, imgOpened, setImgOpened, setPostImg}) => {
+  // const [imgOpened, setImgOpened] =useState(false)
   return (
+    <>
     <div className="flex gap-4 p-3  border-b border-white/20">
         <img src={me} alt="" className="size-[40px] rounded-full" />
         <div className="">
             <PostHeader />
-            <PostContent content={text} img={img} />
+            <PostContent content={text} img={img} onSetPostImg={setPostImg} imgOpened={imgOpened} onSetImgOpened={setImgOpened} />
             <PostEngagement />
+
         </div>
     </div>
+    {/* {imgOpened && <ImageModal img={img} onSetImgOpened={setImgOpened} />} */}
+    </>
   )
 }
